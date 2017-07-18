@@ -59,8 +59,8 @@ Article.fetchAll = function() {
     $.getJSON('data/hackerIpsum.json')
       .then(function(data) {
         localStorage.setItem('rawData', JSON.stringify(data));
-
-
+        Article.loadAll(JSON.parse(localStorage.getItem('rawData')));
+        articleView.initIndexPage();
     // cache it in localStorage so we can skip the server call next time,
     // then load all the data into Article.all with the .loadAll function above,
     // and then render the index page.
